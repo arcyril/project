@@ -1,13 +1,10 @@
-# For clangd to pick mingw headers, remove for Linux and macOS
+# Avoid forcing a non-native target on macOS.
 CompileFlags:
-  Add:
+  Remove:
     - "--target=x86_64-w64-windows-gnu"
 
 Completion:
   AllScopes: No
-  ArgumentLists: Delimiters
-  HeaderInsertion: Never
-  CodePatterns: None
 
 Diagnostics:
   UnusedIncludes: Strict
@@ -22,5 +19,4 @@ InlayHints:
   Enabled: false
   ParameterNames: false
   DeducedTypes: false
-  DefaultArguments: false
   TypeNameLimit: 24
